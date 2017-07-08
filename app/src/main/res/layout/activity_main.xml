@@ -28,10 +28,11 @@
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                
+                android:hint="Username"
                 android:layout_marginRight="10dp"
                 android:layout_weight="3"/>
             <Button
+                android:id="@+id/btn_login"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:text="로그인"
@@ -55,6 +56,24 @@
                 android:layout_weight="1"/>
         </LinearLayout>
 
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="로그인 정보 기억하기"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="네이버 앱으로 로그인"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="카카오톡으로 로그인"/>
     </LinearLayout>
 
 </LinearLayout>
