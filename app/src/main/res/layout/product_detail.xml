@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- section 1 -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/img_product"
+            />
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/id_product_name"
+            android:text="product name"
+            />
+    </LinearLayout>
+
+    <TableLayout
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+            <TextView
+                android:text="Price: "
+                />
+            <EditText
+                android:hint="0"
+                />
+            <TextView
+                android:text=" count"
+                />
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Minimum order number: "
+                />
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Delivery maybe day: "
+                />
+
+        </TableRow>
+
+
+    </TableLayout>
+
+
+</LinearLayout>
