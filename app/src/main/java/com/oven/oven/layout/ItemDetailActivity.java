@@ -23,11 +23,17 @@ public class ItemDetailActivity extends AppCompatActivity {
         btn_select_date = (Button) findViewById(R.id.btn_select_date);
         btn_cart = (Button) findViewById(R.id.btn_cart);
         calendar = (CalendarView) findViewById(R.id.calendar_item_detail);
+        calendar.setVisibility(View.INVISIBLE);
 
         Button.OnClickListener date_listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                calendar.setVisibility(View.VISIBLE);
+                if(calendar.getVisibility()==View.VISIBLE){
+                    calendar.setVisibility(View.INVISIBLE);
+                }
+                else if(calendar.getVisibility()==View.INVISIBLE){
+                    calendar.setVisibility(View.VISIBLE);
+                }
             }
         };
 
