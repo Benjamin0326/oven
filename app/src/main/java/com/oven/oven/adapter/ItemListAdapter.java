@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.oven.oven.R;
 import com.oven.oven.layout.CartActivity;
+import com.oven.oven.layout.ItemDetailActivity;
 
 /**
  * Created by sung9 on 2017-07-08.
@@ -42,7 +43,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
         ImageView.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, CartActivity.class);
+                Intent intent = new Intent(context, ItemDetailActivity.class);
                 context.startActivity(intent);
             }
         };

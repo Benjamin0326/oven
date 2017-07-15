@@ -1,11 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.oven.oven.layout.ItemDetailActivity">
 
+    <ImageView
+        android:id="@+id/img_detail"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@android:color/darker_gray"/>
+
+    <ImageButton
+        android:id="@+id/btn_like_detail"
+        android:layout_margin="30dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:background="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/text_item_name_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_detail"
+        android:text="Test Item Name"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="25sp"/>
+
+    <ScrollView
+        android:layout_below="@id/text_item_name_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </ScrollView>
+
+
     
 
-</android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_item_detail"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edit_item_num_detail"
+            android:layout_margin="10dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:hint="수량입력"
+            android:textSize="20sp"/>
+        <Button
+            android:id="@+id/btn_buy"
+            android:layout_margin="10dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:text="바로결제"
+            android:textSize="20sp"/>
+        <Button
+            android:id="@+id/btn_cart"
+            android:layout_margin="10dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:text="장바구니"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_select_date"
+        android:layout_marginRight="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_above="@id/layout_item_detail"
+        android:layout_alignParentRight="true"
+        android:textSize="20sp"
+        android:text="배송예정일 선택"/>
+
+    <CalendarView
+        android:id="@+id/calendar_item_detail"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_above="@id/btn_select_date"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"/>
+
+</RelativeLayout>
