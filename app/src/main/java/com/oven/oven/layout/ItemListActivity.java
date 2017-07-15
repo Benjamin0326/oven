@@ -6,12 +6,12 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.oven.oven.R;
-import com.oven.oven.adapter.itemListAdapter;
+import com.oven.oven.adapter.ItemListAdapter;
 
 public class ItemListActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private itemListAdapter adapter;
+    private ItemListAdapter adapter;
     private String[] name = {"바나나", "커피", "빵", "요거트", "음료수", "물", "껌"};
     private String[] num = {"500원 /개 ","500원 /개 ","500원 /개 ","500원 /개 ","500원 /개 ","500원 /개 ","500원 /개 "};
 
@@ -21,7 +21,7 @@ public class ItemListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_item_list);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_item_list);
-        adapter = new itemListAdapter(this, name, num);
+        adapter = new ItemListAdapter(this, name, num);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);

@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.oven.oven.R;
@@ -14,12 +13,12 @@ import com.oven.oven.R;
  * Created by sung9 on 2017-07-08.
  */
 
-public class cartListAdapter extends RecyclerView.Adapter<cartListAdapter.ViewHolder>{
+public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.ViewHolder>{
 
     private String[] name;
     private Context context;
 
-    public cartListAdapter(Context _context, String[] _name){
+    public CartListAdapter(Context _context, String[] _name){
         context = _context;
         name = _name;
     }

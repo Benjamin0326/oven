@@ -16,13 +16,13 @@ import com.oven.oven.layout.CartActivity;
  * Created by sung9 on 2017-07-08.
  */
 
-public class itemListAdapter extends RecyclerView.Adapter<itemListAdapter.ViewHolder>{
+public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHolder>{
 
     private String[] name;
     private String[] num;
     private Context context;
 
-    public itemListAdapter(Context _context, String[] _name, String[] _num){
+    public ItemListAdapter(Context _context, String[] _name, String[] _num){
         context = _context;
         name = _name;
         num = _num;
