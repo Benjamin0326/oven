@@ -13,6 +13,7 @@ import com.kakao.util.exception.KakaoException;
 import com.kakao.util.helper.log.Logger;
 import com.oven.oven.layout.ItemListActivity;
 import com.oven.oven.layout.KakaoSignupActivity;
+import com.oven.oven.layout.SplashActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
+        startActivity(intent);
 
         btn_login = (Button) findViewById(R.id.btn_login);
 

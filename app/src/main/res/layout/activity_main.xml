@@ -61,29 +61,13 @@
             android:layout_height="wrap_content"
             android:text="로그인 정보 기억하기"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="네이버 앱으로 로그인"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="카카오톡으로 로그인"/>
 
         <com.kakao.usermgmt.LoginButton
-            android:layout_marginTop="30dp"
             android:id="@+id/com_kakao_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="30dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:layout_margin="10dp"/>
 
     </LinearLayout>
 

@@ -3,6 +3,15 @@
 
     <item
         is-multidex="false"
+        jar="C:\Users\sung9\.android\build-cache\8ee112eca4615657d13e45b5e43d79336809e2ed\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f82998f0794dfe2b65edd561ac0b34b536e7ff9a">
+        <dex dex="C:\Users\sung9\AndroidStudioProjects\Oven\app\build\intermediates\pre-dexed\debug\classes_fe74e242a50ae1ca89692391d3b07baace64fff9.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\sung9\.android\build-cache\f588f1f9eb0144f50b1b002580935e62eafd3616\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
