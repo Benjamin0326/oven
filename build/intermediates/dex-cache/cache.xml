@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\sung9\.android\build-cache\f588f1f9eb0144f50b1b002580935e62eafd3616\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="db5778b91fccdd64b42bf28eaf7bf3c2c6cad256">
+        <dex dex="C:\Users\sung9\AndroidStudioProjects\Oven\app\build\intermediates\pre-dexed\debug\classes_8f8130d4575350b5c92a0fb2cc51f8f639b6055c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sung9\.android\build-cache\89664ec5b965aa96cfd5755ad26b0997e362c257\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="cd274d51f5c8edd33f90cd59439813f1b8e0da6a">
+        <dex dex="C:\Users\sung9\AndroidStudioProjects\Oven\app\build\intermediates\pre-dexed\debug\classes_9ac7902db75f656d262c5f3228d00ceac671999c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sung9\.android\build-cache\1fcd9612e359709cfe6a85a73de7aa26fb6354c0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="83d318091bcf5a6599895cfd210c09ec5d5e99f7">
+        <dex dex="C:\Users\sung9\AndroidStudioProjects\Oven\app\build\intermediates\pre-dexed\debug\classes_5828ce8e5e84436db0ca9e7170b013d2071ae45b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sung9\.android\build-cache\69f9f62f292da69b56e77293a647df09b213d286\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="35708bf7ef298d7d79c22fe0e6d7dce4a5d8805f">
+        <dex dex="C:\Users\sung9\AndroidStudioProjects\Oven\app\build\intermediates\pre-dexed\debug\classes_b2ca1b51fa6d2a24af20663b5479436775b4d13b.jar" />
+    </item>
+
+</items>
