@@ -12,13 +12,14 @@ import com.kakao.auth.Session;
 import com.kakao.util.exception.KakaoException;
 import com.kakao.util.helper.log.Logger;
 import com.oven.oven.layout.ItemListActivity;
+import com.oven.oven.layout.JoinActivity;
 import com.oven.oven.layout.KakaoSignupActivity;
 import com.oven.oven.layout.SplashActivity;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btn_login;
+    private Button btn_login, btn_join;
     private SessionCallback callback;
 
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
         btn_login = (Button) findViewById(R.id.btn_login);
+        btn_join = (Button) findViewById(R.id.btn_join);
 
         Button.OnClickListener btn_listener = new View.OnClickListener() {
             @Override
@@ -40,7 +42,16 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+        Button.OnClickListener btn_join_listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, JoinActivity.class);
+                startActivity(intent);
+            }
+        };
+
         btn_login.setOnClickListener(btn_listener);
+        btn_join.setOnClickListener(btn_join_listener);
 
         callback = new SessionCallback();
         Session.getCurrentSession().addCallback(callback);

@@ -50,6 +50,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight="3"/>
             <Button
+                android:id="@+id/btn_join"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:text="회원가입"

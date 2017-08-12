@@ -27,7 +27,8 @@
         <activity android:name=".layout.CartActivity" />
         <activity android:name=".layout.ItemDetailActivity" />
         <activity android:name=".layout.KakaoSignupActivity" />
-        <activity android:name=".layout.SplashActivity"></activity>
+        <activity android:name=".layout.SplashActivity" />
+        <activity android:name=".layout.JoinActivity"></activity>
     </application>
 
 </manifest>
