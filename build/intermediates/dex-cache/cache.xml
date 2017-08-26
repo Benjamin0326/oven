@@ -3,48 +3,48 @@
 
     <item
         is-multidex="false"
-        jar="C:\Users\sung9\.android\build-cache\8ee112eca4615657d13e45b5e43d79336809e2ed\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="f82998f0794dfe2b65edd561ac0b34b536e7ff9a">
-        <dex dex="C:\Users\sung9\AndroidStudioProjects\Oven\app\build\intermediates\pre-dexed\debug\classes_fe74e242a50ae1ca89692391d3b07baace64fff9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\sung9\.android\build-cache\f588f1f9eb0144f50b1b002580935e62eafd3616\output\jars\classes.jar"
+        jar="C:\Users\sang\.android\build-cache\44099117d98ccbf3bcf11ee1e89bb36b616908cc\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="db5778b91fccdd64b42bf28eaf7bf3c2c6cad256">
-        <dex dex="C:\Users\sung9\AndroidStudioProjects\Oven\app\build\intermediates\pre-dexed\debug\classes_8f8130d4575350b5c92a0fb2cc51f8f639b6055c.jar" />
+        <dex dex="C:\Users\sang\Desktop\6271\oven\app\build\intermediates\pre-dexed\debug\classes_cc8820327ecda669e750b33346a2508876ccb980.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\sung9\.android\build-cache\89664ec5b965aa96cfd5755ad26b0997e362c257\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="cd274d51f5c8edd33f90cd59439813f1b8e0da6a">
-        <dex dex="C:\Users\sung9\AndroidStudioProjects\Oven\app\build\intermediates\pre-dexed\debug\classes_9ac7902db75f656d262c5f3228d00ceac671999c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\sung9\.android\build-cache\1fcd9612e359709cfe6a85a73de7aa26fb6354c0\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="83d318091bcf5a6599895cfd210c09ec5d5e99f7">
-        <dex dex="C:\Users\sung9\AndroidStudioProjects\Oven\app\build\intermediates\pre-dexed\debug\classes_5828ce8e5e84436db0ca9e7170b013d2071ae45b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\sung9\.android\build-cache\69f9f62f292da69b56e77293a647df09b213d286\output\jars\classes.jar"
+        jar="C:\Users\sang\.android\build-cache\662b0a1352ae59a61380682a1965b7ddd3b8e7e7\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="35708bf7ef298d7d79c22fe0e6d7dce4a5d8805f">
-        <dex dex="C:\Users\sung9\AndroidStudioProjects\Oven\app\build\intermediates\pre-dexed\debug\classes_b2ca1b51fa6d2a24af20663b5479436775b4d13b.jar" />
+        <dex dex="C:\Users\sang\Desktop\6271\oven\app\build\intermediates\pre-dexed\debug\classes_a8a08481d08a43c448afb4e593567b44d705cb1a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sang\.android\build-cache\df815054e9c27ca0f5b115024dfcfa8fd2f7d751\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f82998f0794dfe2b65edd561ac0b34b536e7ff9a">
+        <dex dex="C:\Users\sang\Desktop\6271\oven\app\build\intermediates\pre-dexed\debug\classes_671ad947e5252c48355b2285bf86a9b914e80ba5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sang\.android\build-cache\cc212d4d0b1e4540afa21a555ecd0452df39c9fe\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="cd274d51f5c8edd33f90cd59439813f1b8e0da6a">
+        <dex dex="C:\Users\sang\Desktop\6271\oven\app\build\intermediates\pre-dexed\debug\classes_2c2c941ddbd416a081eaaef592bb62a9a0f9611b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sang\.android\build-cache\ee240c867aa0bc77740a450cdec5ce3e613ade41\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="83d318091bcf5a6599895cfd210c09ec5d5e99f7">
+        <dex dex="C:\Users\sang\Desktop\6271\oven\app\build\intermediates\pre-dexed\debug\classes_dc60ba3fc1479addb875f6c1e37d3e0cb6e58be7.jar" />
     </item>
 
 </items>

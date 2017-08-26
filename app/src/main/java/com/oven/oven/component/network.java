@@ -11,7 +11,7 @@ public class network extends Application {
 
         Retrofit.Builder builder = new Retrofit.Builder();
 
-        builder.baseUrl("http://52.78.196.190:9000");
+        builder.baseUrl("http://13.124.227.53:9000/");
         builder.addConverterFactory(GsonConverterFactory.create());
 
         return builder.build();
