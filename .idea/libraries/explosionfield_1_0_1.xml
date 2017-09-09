@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="explosionfield-1.0.1">
     <CLASSES>
-      <root url="file://$USER_HOME$/.android/build-cache/df815054e9c27ca0f5b115024dfcfa8fd2f7d751/output/res" />
-      <root url="jar://$USER_HOME$/.android/build-cache/df815054e9c27ca0f5b115024dfcfa8fd2f7d751/output/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/8ee112eca4615657d13e45b5e43d79336809e2ed/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/8ee112eca4615657d13e45b5e43d79336809e2ed/output/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

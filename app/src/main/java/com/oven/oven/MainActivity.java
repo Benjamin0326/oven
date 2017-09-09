@@ -4,23 +4,35 @@ package com.oven.oven;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
 import com.kakao.util.exception.KakaoException;
 import com.kakao.util.helper.log.Logger;
+import com.oven.oven.component.network;
 import com.oven.oven.layout.ItemListActivity;
 import com.oven.oven.layout.JoinActivity;
 import com.oven.oven.layout.KakaoSignupActivity;
 import com.oven.oven.layout.SplashActivity;
+import com.oven.oven.model.LoginRes;
+import com.oven.oven.service.LoginService;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private Button btn_login, btn_join;
+    private EditText edit_id, edit_pw;
     private SessionCallback callback;
+
 
 
     @Override
@@ -34,11 +46,25 @@ public class MainActivity extends AppCompatActivity {
         btn_login = (Button) findViewById(R.id.btn_login);
         btn_join = (Button) findViewById(R.id.btn_join);
 
+        edit_id = (EditText) findViewById(R.id.edit_login_id);
+        edit_pw = (EditText) findViewById(R.id.edit_login_pw);
+
         Button.OnClickListener btn_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ItemListActivity.class);
-                startActivity(intent);
+                if(edit_id.getText().toString().length()==0){
+                    Toast.makeText(MainActivity.this, "이메일 주소를 입력해 주세요.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                if(edit_pw.getText().toString().length()==0){
+                    Toast.makeText(MainActivity.this, "비밀번호를 입력해 주세요.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                String id, pw;
+                id = edit_id.getText().toString();
+                pw = edit_pw.getText().toString();
+                //Toast.makeText(MainActivity.this, mail+" / "+pw, Toast.LENGTH_LONG).show();
+                postLogin(id, pw);
             }
         };
 
@@ -95,5 +121,37 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
+    public void postLogin(String mail, String pw){
+        LoginService service = network.buildRetrofit().create(LoginService.class);
+        Call<LoginRes> loginCall = service.postLogin(mail, pw);
+
+        loginCall.enqueue(new Callback<LoginRes>() {
+            @Override
+            public void onResponse(Call<LoginRes> call, Response<LoginRes> response) {
+                if(response.isSuccessful()){
+                    LoginRes testRes = response.body();
+
+                    Log.d("Login Info : ", testRes.getCode()+"\n"+testRes.getMsg());
+                    //for(int i=0;i<festivalLists.get(position).getVideo().length;i++){
+                    //    Log.d("#Test :", festivalLists.get(position).getVideo()[i]);
+                    //}
+                    //Picasso.with(getActivity()).load(festivalLists.get(position).getImg()[1]).into(img);
+                    if(testRes.getCode()==200) {
+                        Intent intent = new Intent(MainActivity.this, ItemListActivity.class);
+                        startActivity(intent);
+                    }
+                    return;
+                }
+                int code = response.code();
+                Log.d("TEST", "err code : " + code);
+            }
+
+            @Override
+            public void onFailure(Call<LoginRes> call, Throwable t) {
+                Toast.makeText(MainActivity.this, "Failed to Access", Toast.LENGTH_LONG).show();
+                Log.i("TEST","err : "+ t.getMessage());
+            }
+        });
+    }
 
 }

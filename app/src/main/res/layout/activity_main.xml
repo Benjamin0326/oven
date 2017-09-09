@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <EditText
+                android:id="@+id/edit_login_id"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:hint="Username"
@@ -44,6 +45,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <EditText
+                android:id="@+id/edit_login_pw"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:hint="Password"

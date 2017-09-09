@@ -12,6 +12,10 @@ import android.widget.TextView;
 import com.oven.oven.R;
 import com.oven.oven.layout.CartActivity;
 import com.oven.oven.layout.ItemDetailActivity;
+import com.oven.oven.model.ProductRes;
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 /**
  * Created by sung9 on 2017-07-08.
@@ -19,14 +23,12 @@ import com.oven.oven.layout.ItemDetailActivity;
 
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHolder>{
 
-    private String[] name;
-    private String[] num;
+    private List<ProductRes> productList;
     private Context context;
 
-    public ItemListAdapter(Context _context, String[] _name, String[] _num){
+    public ItemListAdapter(Context _context, List<ProductRes> _productList){
         context = _context;
-        name = _name;
-        num = _num;
+        productList = _productList;
     }
 
     @Override
@@ -44,20 +46,22 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, ItemDetailActivity.class);
+                intent.putExtra("pid", productList.get(pos).getPid());
                 context.startActivity(intent);
             }
         };
 
-        holder.tv_name.setText(name[pos]);
-        holder.tv_num.setText(num[pos]);
+        holder.tv_name.setText(productList.get(pos).getPname());
+        holder.tv_num.setText(productList.get(pos).getPrice());
+        Picasso.with(context).load(productList.get(pos).getImage()).resize(500,500).centerCrop().into(holder.img_item);
         holder.img_item.setOnClickListener(listener);
     }
 
     @Override
     public int getItemCount() {
-        if(name==null)
+        if(productList==null)
             return 0;
-        return name.length;
+        return productList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
