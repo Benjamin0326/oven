@@ -9,7 +9,7 @@ import java.util.List;
 public class ProductDetailList {
     private int code;
     private String msg;
-    private List<ProductDetail> product_list;
+    private List<ProductDetail> product_detail;
 
     public void setCode(int _code){
         code = _code;
@@ -17,8 +17,8 @@ public class ProductDetailList {
     public void setMsg(String _msg){
         msg = _msg;
     }
-    public void setProduct_list(List<ProductDetail> _product_list){
-        product_list = _product_list;
+    public void setProduct_detail(List<ProductDetail> _product_detail){
+        product_detail = _product_detail;
     }
     public int getCode(){
         return code;
@@ -26,7 +26,7 @@ public class ProductDetailList {
     public String getMsg(){
         return msg;
     }
-    public List<ProductDetail> getProduct_list(){
-        return product_list;
+    public List<ProductDetail> getProduct_detail(){
+        return product_detail;
     }
 }

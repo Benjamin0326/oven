@@ -38,6 +38,8 @@ public class ItemListActivity extends AppCompatActivity {
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
+
+        getProductList(1);
     }
 
     public void getProductList(int page){

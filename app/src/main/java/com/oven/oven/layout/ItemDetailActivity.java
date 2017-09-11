@@ -88,16 +88,16 @@ public class ItemDetailActivity extends AppCompatActivity {
                     if(response.body()!=null){
                         productDetail = response.body();
                         if(productDetail.getCode()==200){
-                            Picasso.with(ItemDetailActivity.this).load(productDetail.getProduct_list().get(0).getImage()).resize(500,500).centerCrop().into(img_item_detail);
-                            tv_item_name.setText(productDetail.getProduct_list().get(0).getPname());
+                            Picasso.with(ItemDetailActivity.this).load(productDetail.getProduct_detail().get(0).getImage()).resize(500,500).centerCrop().into(img_item_detail);
+                            tv_item_name.setText(productDetail.getProduct_detail().get(0).getPname());
                             String testText = "";
-                            testText+=("가격 : "+productDetail.getProduct_list().get(0).getPrice());
-                            testText+=("\n최소주문 수량 : "+productDetail.getProduct_list().get(0).getMin());
-                            testText+=("\n배송예정일 : "+productDetail.getProduct_list().get(0).getArrival_date());
-                            testText+=("\n유통기한 : "+productDetail.getProduct_list().get(0).getExpire_date());
-                            testText+=("\n보관방법 : "+productDetail.getProduct_list().get(0).getStorage());
-                            testText+=("\n주의사항 : "+productDetail.getProduct_list().get(0).getNotice());
-                            testText+=("\n상세설명 : "+productDetail.getProduct_list().get(0).getDescription());
+                            testText+=("가격 : "+productDetail.getProduct_detail().get(0).getPrice());
+                            testText+=("\n최소주문 수량 : "+productDetail.getProduct_detail().get(0).getMin());
+                            testText+=("\n배송예정일 : "+productDetail.getProduct_detail().get(0).getArrival_date());
+                            testText+=("\n유통기한 : "+productDetail.getProduct_detail().get(0).getExpire_date());
+                            testText+=("\n보관방법 : "+productDetail.getProduct_detail().get(0).getStorage());
+                            testText+=("\n주의사항 : "+productDetail.getProduct_detail().get(0).getNotice());
+                            testText+=("\n상세설명 : "+productDetail.getProduct_detail().get(0).getDescription());
                             tv_item_des.setText(testText);
                         }
                     }
