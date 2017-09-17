@@ -2,11 +2,13 @@ package com.oven.oven;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -29,22 +31,36 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String PREF = "YF_PREF";
+    public static SharedPreferences pref;
+    public static int UID;
+
     private Button btn_login, btn_join;
     private EditText edit_id, edit_pw;
     private SessionCallback callback;
-
-
+    private CheckBox auto_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getPreferences();
+
+        UID = pref.getInt("uid",-1);
+        if(UID!=-1){
+            Intent intent = new Intent(MainActivity.this, ItemListActivity.class);
+            startActivity(intent);
+            //finish();
+        }
+
         Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
         startActivity(intent);
 
         btn_login = (Button) findViewById(R.id.btn_login);
         btn_join = (Button) findViewById(R.id.btn_join);
+
+        auto_login = (CheckBox) findViewById(R.id.cb_auto_login);
 
         edit_id = (EditText) findViewById(R.id.edit_login_id);
         edit_pw = (EditText) findViewById(R.id.edit_login_pw);
@@ -121,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    public void postLogin(String mail, String pw){
+    public void postLogin(final String mail, final String pw){
         LoginService service = network.buildRetrofit().create(LoginService.class);
         Call<LoginRes> loginCall = service.postLogin(mail, pw);
 
@@ -137,8 +153,19 @@ public class MainActivity extends AppCompatActivity {
                     //}
                     //Picasso.with(getActivity()).load(festivalLists.get(position).getImg()[1]).into(img);
                     if(testRes.getCode()==200) {
+                        Toast.makeText(MainActivity.this, "UID : "+testRes.getUid(), Toast.LENGTH_SHORT).show();
+
+                        if(auto_login.isChecked()){
+                            SharedPreferences.Editor editor = MainActivity.pref.edit();
+                            editor.putInt("uid", testRes.getUid());
+                            editor.putString("email", mail);
+                            editor.putString("pw", pw);
+                            editor.commit();
+                        }
+
                         Intent intent = new Intent(MainActivity.this, ItemListActivity.class);
                         startActivity(intent);
+                        //finish();
                     }
                     return;
                 }
@@ -152,6 +179,10 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("TEST","err : "+ t.getMessage());
             }
         });
+    }
+
+    private void getPreferences(){
+        pref = getSharedPreferences(PREF, MODE_PRIVATE);
     }
 
 }

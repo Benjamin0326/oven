@@ -7,15 +7,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.oven.oven.MainActivity;
 import com.oven.oven.R;
 import com.oven.oven.adapter.ItemListAdapter;
 import com.oven.oven.component.network;
 import com.oven.oven.model.ProductDetail;
 import com.oven.oven.model.ProductDetailList;
+import com.oven.oven.model.ProductFavorite;
 import com.oven.oven.model.ProductResList;
 import com.oven.oven.service.ProductService;
 import com.squareup.picasso.Picasso;
@@ -27,6 +30,7 @@ import retrofit2.Response;
 public class ItemDetailActivity extends AppCompatActivity {
 
     private Button btn_select_date, btn_cart;
+    private ImageButton btn_like;
     private CalendarView calendar;
     private ProductDetailList productDetail;
     private ImageView img_item_detail;
@@ -49,8 +53,16 @@ public class ItemDetailActivity extends AppCompatActivity {
 
         btn_select_date = (Button) findViewById(R.id.btn_select_date);
         btn_cart = (Button) findViewById(R.id.btn_cart);
+        btn_like = (ImageButton) findViewById(R.id.btn_like_detail);
         calendar = (CalendarView) findViewById(R.id.calendar_item_detail);
         calendar.setVisibility(View.INVISIBLE);
+
+        ImageButton.OnClickListener like_listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                postProductFavorite(MainActivity.UID, pid);
+            }
+        };
 
         Button.OnClickListener date_listener = new View.OnClickListener() {
             @Override
@@ -74,13 +86,14 @@ public class ItemDetailActivity extends AppCompatActivity {
 
         btn_select_date.setOnClickListener(date_listener);
         btn_cart.setOnClickListener(cart_listener);
+        btn_like.setOnClickListener(like_listener);
 
     }
 
     public void postProductDetail(int id){
 
         ProductService service = network.buildRetrofit().create(ProductService.class);
-        Call<ProductDetailList> call = service.postProductDetail(id);
+        Call<ProductDetailList> call = service.postProductDetail(id, MainActivity.UID);
         call.enqueue(new Callback<ProductDetailList>() {
             @Override
             public void onResponse(Call<ProductDetailList> call, final Response<ProductDetailList> response) {
@@ -99,6 +112,10 @@ public class ItemDetailActivity extends AppCompatActivity {
                             testText+=("\n주의사항 : "+productDetail.getProduct_detail().get(0).getNotice());
                             testText+=("\n상세설명 : "+productDetail.getProduct_detail().get(0).getDescription());
                             tv_item_des.setText(testText);
+                            if(productDetail.getProduct_detail().get(0).getToggle()==1)
+                                btn_like.setImageResource(R.mipmap.icon_item_action_like_selected);
+                            else if(productDetail.getProduct_detail().get(0).getToggle()==0)
+                                btn_like.setImageResource(R.mipmap.icon_item_action_like_deselected);
                         }
                     }
                     return;
@@ -112,5 +129,39 @@ public class ItemDetailActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void postProductFavorite(int uid, int pid){
+
+        ProductService service = network.buildRetrofit().create(ProductService.class);
+        Call<ProductFavorite> call = service.postProductFavorite(uid, pid);
+        call.enqueue(new Callback<ProductFavorite>() {
+            @Override
+            public void onResponse(Call<ProductFavorite> call, final Response<ProductFavorite> response) {
+                if(response.isSuccessful()) {
+                    if(response.body()!=null){
+                        if(response.body().getCode()==200){
+                            if(response.body().getToggle()==1){
+                                btn_like.setImageResource(R.mipmap.icon_item_action_like_selected);
+                                Toast.makeText(ItemDetailActivity.this, "좋아요가 반영되었습니다.", Toast.LENGTH_LONG).show();
+                            }
+                            else if(response.body().getToggle()==0){
+                                btn_like.setImageResource(R.mipmap.icon_item_action_like_deselected);
+                                Toast.makeText(ItemDetailActivity.this, "좋아요가 취소되었습니다.", Toast.LENGTH_LONG).show();
+                            }
+
+                        }
+                    }
+                    return;
+                }
+
+                Toast.makeText(getApplicationContext(), "err " + response.code() + " : " + response.message(), Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onFailure(Call<ProductFavorite> call, Throwable t) {
+                Log.d("TEST", "err msg : " + t.getMessage().toString());
+            }
+        });
+    }
+
 
 }

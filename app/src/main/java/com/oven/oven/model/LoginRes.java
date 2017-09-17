@@ -5,7 +5,7 @@ package com.oven.oven.model;
  */
 
 public class LoginRes {
-    private int code;
+    private int code, uid;
     private String msg;
 
     public void setCode(int _code){
@@ -14,11 +14,17 @@ public class LoginRes {
     public void setMsg(String _msg){
         msg = _msg;
     }
+    public void setUid(int _uid){
+        uid = _uid;
+    }
 
     public int getCode(){
         return code;
     }
     public String getMsg(){
         return msg;
+    }
+    public int getUid(){
+        return uid;
     }
 }

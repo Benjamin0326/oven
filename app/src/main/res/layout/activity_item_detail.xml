@@ -21,7 +21,7 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_alignParentRight="true"
-        android:background="@color/colorPrimary"/>
+        android:src="@mipmap/icon_item_action_like_deselected"/>
 
     <TextView
         android:id="@+id/text_item_name_detail"

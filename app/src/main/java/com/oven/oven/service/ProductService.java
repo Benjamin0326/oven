@@ -1,6 +1,7 @@
 package com.oven.oven.service;
 
 import com.oven.oven.model.ProductDetailList;
+import com.oven.oven.model.ProductFavorite;
 import com.oven.oven.model.ProductResList;
 
 import retrofit2.Call;
@@ -17,9 +18,13 @@ import retrofit2.http.Query;
 
 public interface ProductService {
     @GET("/MainData")
-    Call<ProductResList> getProductList(@Query("page") int page);
+    Call<ProductResList> getProductList();
 
     @FormUrlEncoded
     @POST("/Product_detail")
-    Call<ProductDetailList> postProductDetail(@Field("pid") int pid);
+    Call<ProductDetailList> postProductDetail(@Field("pid") int pid, @Field("uid") int uid);
+
+    @FormUrlEncoded
+    @POST("/Favorite_toggle")
+    Call<ProductFavorite> postProductFavorite(@Field("uid") int uid, @Field("pid") int pid);
 }

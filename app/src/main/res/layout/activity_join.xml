@@ -13,15 +13,47 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:hint="e-mail"/>
+        android:hint="아이디(이메일)"/>
 
     <EditText
         android:id="@+id/et_join_pw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="password"
+        android:hint="비밀번호"
         android:textSize="20sp"
         android:inputType="textPassword"/>
+    <EditText
+        android:id="@+id/et_join_pw2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="비밀번호 확인"
+        android:textSize="20sp"
+        android:inputType="textPassword"/>
+    <EditText
+        android:id="@+id/et_join_uname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:hint="이름"/>
+    <EditText
+        android:id="@+id/et_join_hp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:hint="휴대전화번호"/>
+    <EditText
+        android:id="@+id/et_join_cname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:hint="업체명"/>
+    <EditText
+        android:id="@+id/et_join_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:hint="주소"/>
+
 
     <Button
         android:id="@+id/btn_join_ok"

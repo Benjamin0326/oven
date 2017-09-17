@@ -6,8 +6,11 @@ package com.oven.oven.model;
 
 public class ProductDetail {
     private String pname, image, price, arrival_date, storage, expire_date, notice, description;
-    private int min, max;
+    private int min, max, toggle;
 
+    public void setToggle(int _toggle){
+        toggle = _toggle;
+    }
     public void setMin(int _min){
         min = _min;
     }
@@ -68,5 +71,8 @@ public class ProductDetail {
     }
     public String getDescription(){
         return description;
+    }
+    public int getToggle(){
+        return toggle;
     }
 }

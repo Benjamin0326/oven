@@ -39,13 +39,12 @@ public class ItemListActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
 
-        getProductList(1);
+        getProductList();
     }
 
-    public void getProductList(int page){
-
+    public void getProductList(){
         ProductService service = network.buildRetrofit().create(ProductService.class);
-        Call<ProductResList> call = service.getProductList(page);
+        Call<ProductResList> call = service.getProductList();
         call.enqueue(new Callback<ProductResList>() {
             @Override
             public void onResponse(Call<ProductResList> call, final Response<ProductResList> response) {
@@ -57,7 +56,6 @@ public class ItemListActivity extends AppCompatActivity {
                     }
                     return;
                 }
-
                 Toast.makeText(getApplicationContext(), "err " + response.code() + " : " + response.message(), Toast.LENGTH_SHORT).show();
             }
             @Override

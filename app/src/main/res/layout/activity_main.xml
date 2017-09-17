@@ -60,6 +60,7 @@
         </LinearLayout>
 
         <CheckBox
+            android:id="@+id/cb_auto_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="로그인 정보 기억하기"/>
