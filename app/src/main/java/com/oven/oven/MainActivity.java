@@ -17,6 +17,7 @@ import com.kakao.auth.Session;
 import com.kakao.util.exception.KakaoException;
 import com.kakao.util.helper.log.Logger;
 import com.oven.oven.component.network;
+import com.oven.oven.layout.ClauseActivity;
 import com.oven.oven.layout.ItemListActivity;
 import com.oven.oven.layout.JoinActivity;
 import com.oven.oven.layout.KakaoSignupActivity;
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         Button.OnClickListener btn_join_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, JoinActivity.class);
+                Intent intent = new Intent(MainActivity.this, ClauseActivity.class);
                 startActivity(intent);
             }
         };
