@@ -12,14 +12,13 @@
         android:id="@+id/img_detail"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@android:color/darker_gray"/>
+        android:layout_height="200dp"/>
 
     <ImageButton
         android:id="@+id/btn_like_detail"
         android:layout_margin="30dp"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignParentRight="true"
         android:src="@mipmap/icon_item_action_like_deselected"/>
 

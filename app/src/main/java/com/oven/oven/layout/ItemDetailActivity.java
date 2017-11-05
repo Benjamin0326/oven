@@ -101,7 +101,7 @@ public class ItemDetailActivity extends AppCompatActivity {
                     if(response.body()!=null){
                         productDetail = response.body();
                         if(productDetail.getCode()==200){
-                            Picasso.with(ItemDetailActivity.this).load(productDetail.getImage()).resize(500,500).centerCrop().into(img_item_detail);
+                            Picasso.with(ItemDetailActivity.this).load(productDetail.getImage()).resize(500,500).centerInside().into(img_item_detail);
                             tv_item_name.setText(productDetail.getPname());
                             String testText = "";
                             testText+=("가격 : "+productDetail.getPrice());

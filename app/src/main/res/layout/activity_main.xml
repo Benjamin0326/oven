@@ -8,15 +8,15 @@
     tools:context="com.oven.oven.MainActivity">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="250dp"
+        android:layout_height="125dp"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:background="@android:color/holo_blue_dark"
         />
 
     <LinearLayout
-        android:layout_margin="20dp"
+        android:layout_margin="25dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">

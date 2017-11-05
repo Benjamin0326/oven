@@ -53,7 +53,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
 
         holder.tv_name.setText(productList.get(pos).getPname());
         holder.tv_num.setText(productList.get(pos).getPrice());
-        Picasso.with(context).load(productList.get(pos).getImage()).resize(500,500).centerCrop().into(holder.img_item);
+        Picasso.with(context).load(productList.get(pos).getImage()).resize(500,500).centerInside().into(holder.img_item);
         holder.img_item.setOnClickListener(listener);
     }
 

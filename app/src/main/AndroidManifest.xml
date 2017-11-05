@@ -29,7 +29,8 @@
         <activity android:name=".layout.KakaoSignupActivity" />
         <activity android:name=".layout.SplashActivity" />
         <activity android:name=".layout.JoinActivity" />
-        <activity android:name=".layout.ClauseActivity"></activity>
+        <activity android:name=".layout.ClauseActivity" />
+        <activity android:name=".layout.ItemListMainActivity"></activity>
     </application>
 
 </manifest>
