@@ -8,40 +8,4 @@
     android:orientation="vertical"
     tools:context="com.oven.oven.layout.ItemListActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:layout_marginBottom="15dp"
-        >
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:scaleType="centerInside"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:src="@mipmap/menu"/>
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="7"/>
-        <ImageButton
-            android:scaleType="centerInside"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_gravity="right"
-            android:background="@android:color/transparent"
-            android:src="@mipmap/cart"/>
-
-    </LinearLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="11"
-        android:id="@+id/recycler_item_list">
-    </android.support.v7.widget.RecyclerView>
-
 </LinearLayout>

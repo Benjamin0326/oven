@@ -30,7 +30,12 @@
         <activity android:name=".layout.SplashActivity" />
         <activity android:name=".layout.JoinActivity" />
         <activity android:name=".layout.ClauseActivity" />
-        <activity android:name=".layout.ItemListMainActivity"></activity>
+        <activity android:name=".layout.ItemListMainActivity" />
+        <activity
+            android:name=".component.TestActivity"
+            android:label="@string/title_activity_test"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".layout.LikeListActivity"></activity>
     </application>
 
 </manifest>

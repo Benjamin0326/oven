@@ -17,6 +17,14 @@ public interface LoginService {
     Call<LoginRes> postJoin(@Field("email") String email, @Field("password") String password, @Field("uname") String uname, @Field("hp") String hp, @Field("cname") String cname, @Field("address") String address);
 
     @FormUrlEncoded
+    @POST("/Signup")
+    Call<LoginRes> postKakaoJoin(@Field("email") String email, @Field("uname") String uname);
+
+    @FormUrlEncoded
     @POST("/Login")
     Call<LoginRes> postLogin(@Field("email") String email, @Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("/Kakaotalk_Login")
+    Call<LoginRes> postKakaoLogin(@Field("email") String email, @Field("uname") String uname);
 }

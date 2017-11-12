@@ -16,9 +16,10 @@ import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
 import com.kakao.util.exception.KakaoException;
 import com.kakao.util.helper.log.Logger;
+import com.oven.oven.component.TestActivity;
 import com.oven.oven.component.network;
 import com.oven.oven.layout.ClauseActivity;
-import com.oven.oven.layout.ItemListActivity;
+//import com.oven.oven.layout.ItemListMainActivity;
 import com.oven.oven.layout.JoinActivity;
 import com.oven.oven.layout.KakaoSignupActivity;
 import com.oven.oven.layout.SplashActivity;
@@ -49,10 +50,12 @@ public class MainActivity extends AppCompatActivity {
         getPreferences();
 
         UID = pref.getInt("uid",-1);
-        if(UID!=-1){
-            Intent intent = new Intent(MainActivity.this, ItemListActivity.class);
+        int autoLogin = pref.getInt("autoLogin", 0);
+
+        if(autoLogin==1){
+            Intent intent = new Intent(MainActivity.this, TestActivity.class);
             startActivity(intent);
-            //finish();
+            finish();
         }
 
         Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
@@ -158,13 +161,26 @@ public class MainActivity extends AppCompatActivity {
 
                         if(auto_login.isChecked()){
                             SharedPreferences.Editor editor = MainActivity.pref.edit();
+                            editor.putInt("autoLogin", 1);
                             editor.putInt("uid", testRes.getUid());
                             editor.putString("email", mail);
                             editor.putString("pw", pw);
                             editor.commit();
                         }
-
-                        Intent intent = new Intent(MainActivity.this, ItemListActivity.class);
+                        else{
+                            SharedPreferences.Editor editor = MainActivity.pref.edit();
+                            editor.putInt("autoLogin", 0);
+                            editor.putInt("uid", testRes.getUid());
+                            editor.putString("email", mail);
+                            editor.putString("pw", pw);
+                            editor.commit();
+                        }
+/*
+SharedPreferences.Editor editor = MainActivity.pref.edit();
+            editor.putInt("uid", -1);
+            editor.commit();
+ */
+                        Intent intent = new Intent(MainActivity.this, TestActivity.class);
                         startActivity(intent);
                         //finish();
                     }

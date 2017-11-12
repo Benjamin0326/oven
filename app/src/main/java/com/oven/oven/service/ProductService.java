@@ -27,4 +27,8 @@ public interface ProductService {
     @FormUrlEncoded
     @POST("/Favorite_toggle")
     Call<ProductFavorite> postProductFavorite(@Field("uid") int uid, @Field("pid") int pid);
+
+    @FormUrlEncoded
+    @POST("/Zzim_product")
+    Call<ProductResList> postProductLikeList(@Field("uid") int uid);
 }
