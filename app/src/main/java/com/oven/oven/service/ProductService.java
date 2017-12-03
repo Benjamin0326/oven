@@ -17,8 +17,9 @@ import retrofit2.http.Query;
  */
 
 public interface ProductService {
-    @GET("/MainData")
-    Call<ProductResList> getProductList();
+    @FormUrlEncoded
+    @POST("/MainData")
+    Call<ProductResList> getProductList(@Field("uid") int uid);
 
     @FormUrlEncoded
     @POST("/Product_detail")

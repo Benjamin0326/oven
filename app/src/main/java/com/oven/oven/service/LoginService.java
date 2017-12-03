@@ -1,6 +1,7 @@
 package com.oven.oven.service;
 
 import com.oven.oven.model.LoginRes;
+import com.oven.oven.model.SideUserInfo;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -27,4 +28,8 @@ public interface LoginService {
     @FormUrlEncoded
     @POST("/Kakaotalk_Login")
     Call<LoginRes> postKakaoLogin(@Field("email") String email, @Field("uname") String uname);
+
+    @FormUrlEncoded
+    @POST("/Side_menu")
+    Call<SideUserInfo> postSidemenu(@Field("udi") int uid);
 }

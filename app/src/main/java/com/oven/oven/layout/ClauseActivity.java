@@ -33,6 +33,7 @@ public class ClauseActivity extends AppCompatActivity {
                 if(chk1.isChecked() && chk2.isChecked()){
                     Intent intent = new Intent(ClauseActivity.this, JoinActivity.class);
                     startActivity(intent);
+                    finish();
                     return;
                 }
                 else if(!chk1.isChecked()){

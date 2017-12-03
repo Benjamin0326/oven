@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.oven.oven.MainActivity;
 import com.oven.oven.R;
 import com.oven.oven.adapter.ItemListAdapter;
 import com.oven.oven.component.network;
@@ -44,7 +45,7 @@ public class ItemListActivity extends AppCompatActivity {
 
     public void getProductList(){
         ProductService service = network.buildRetrofit().create(ProductService.class);
-        Call<ProductResList> call = service.getProductList();
+        Call<ProductResList> call = service.getProductList(MainActivity.UID);
         call.enqueue(new Callback<ProductResList>() {
             @Override
             public void onResponse(Call<ProductResList> call, final Response<ProductResList> response) {
