@@ -74,6 +74,7 @@
                 android:layout_weight="1"
                 android:layout_height="50dp"
                 android:hint="수량입력"
+                android:inputType="numberDecimal"
                 android:textSize="20sp"/>
             <Button
                 android:id="@+id/btn_buy"

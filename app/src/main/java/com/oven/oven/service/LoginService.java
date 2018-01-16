@@ -31,5 +31,7 @@ public interface LoginService {
 
     @FormUrlEncoded
     @POST("/Side_menu")
-    Call<SideUserInfo> postSidemenu(@Field("udi") int uid);
+    Call<SideUserInfo> postSidemenu(@Field("uid") int uid);
+
+
 }

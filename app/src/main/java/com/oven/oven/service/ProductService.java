@@ -1,5 +1,7 @@
 package com.oven.oven.service;
 
+import com.oven.oven.model.CartProducts;
+import com.oven.oven.model.DefaultModel;
 import com.oven.oven.model.ProductDetailList;
 import com.oven.oven.model.ProductFavorite;
 import com.oven.oven.model.ProductResList;
@@ -32,4 +34,16 @@ public interface ProductService {
     @FormUrlEncoded
     @POST("/Zzim_product")
     Call<ProductResList> postProductLikeList(@Field("uid") int uid);
+
+    @FormUrlEncoded
+    @POST("/View_product")
+    Call<ProductResList> postProductVIewList(@Field("uid") int uid);
+
+    @FormUrlEncoded
+    @POST("/Add_cart")
+    Call<DefaultModel> postAddCart(@Field("pid") int pid, @Field("uid") int uid, @Field("cnt") int cnt);
+
+    @FormUrlEncoded
+    @POST("/Cart_product")
+    Call<CartProducts> postCartProduct(@Field("uid") int uid);
 }

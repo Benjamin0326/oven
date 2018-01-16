@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import com.oven.oven.MainActivity;
 import com.oven.oven.R;
 import com.oven.oven.adapter.ItemListAdapter;
 import com.oven.oven.component.network;
+import com.oven.oven.model.DefaultModel;
 import com.oven.oven.model.ProductDetail;
 import com.oven.oven.model.ProductDetailList;
 import com.oven.oven.model.ProductFavorite;
@@ -36,6 +38,8 @@ public class ItemDetailActivity extends AppCompatActivity {
     private ImageView img_item_detail;
     private TextView tv_item_name, tv_item_des;
     private int pid;
+    private EditText edit_num_product;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +51,13 @@ public class ItemDetailActivity extends AppCompatActivity {
         tv_item_name = (TextView) findViewById(R.id.text_item_name_detail);
         tv_item_des = (TextView) findViewById(R.id.text_item_description_detail);
 
+
+
         pid = getIntent().getExtras().getInt("pid");
 
         postProductDetail(pid);
+
+        edit_num_product = (EditText)findViewById(R.id.edit_item_num_detail);
 
         btn_select_date = (Button) findViewById(R.id.btn_select_date);
         btn_cart = (Button) findViewById(R.id.btn_cart);
@@ -79,8 +87,17 @@ public class ItemDetailActivity extends AppCompatActivity {
         Button.OnClickListener cart_listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ItemDetailActivity.this, CartActivity.class);
-                startActivity(intent);
+                if(edit_num_product.getText().toString().length()==0) {
+                    Toast.makeText(ItemDetailActivity.this, "수량을 입력해 주세요.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                int num = Integer.parseInt(edit_num_product.getText().toString());
+                if(num<productDetail.getMin()){
+                    Toast.makeText(ItemDetailActivity.this, "최소 수량보다 적습니다.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                postAddCart(pid, num);
             }
         };
 
@@ -125,6 +142,37 @@ public class ItemDetailActivity extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<ProductDetailList> call, Throwable t) {
+                Log.d("TEST", "err msg : " + t.getMessage().toString());
+            }
+        });
+    }
+
+    public void postAddCart(int pid, int cnt){
+        Log.d("NUM : ", String.valueOf(cnt));
+        ProductService service = network.buildRetrofit().create(ProductService.class);
+        Call<DefaultModel> call = service.postAddCart(pid, MainActivity.UID, cnt);
+        call.enqueue(new Callback<DefaultModel>() {
+            @Override
+            public void onResponse(Call<DefaultModel> call, final Response<DefaultModel> response) {
+                if(response.isSuccessful()) {
+                    if(response.body()!=null){
+                        DefaultModel res = response.body();
+                        Log.d("cart res : ", String.valueOf(res.getCode()) + " " + res.getMsg());
+
+                        if(res.getCode()==200){
+                            Toast.makeText(ItemDetailActivity.this, "장바구니에 추가되었습니다.", Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            Toast.makeText(ItemDetailActivity.this, "장바구니 추가에 실패했습니다.", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                    return;
+                }
+
+                Toast.makeText(getApplicationContext(), "err " + response.code() + " : " + response.message(), Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onFailure(Call<DefaultModel> call, Throwable t) {
                 Log.d("TEST", "err msg : " + t.getMessage().toString());
             }
         });

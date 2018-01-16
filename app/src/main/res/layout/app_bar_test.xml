@@ -37,12 +37,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="7"/>
             <ImageButton
+                android:id="@+id/imgBtn_cart"
                 android:scaleType="centerInside"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_gravity="right"
-                android:background="@android:color/transparent"
+                android:background="@android:color/white"
                 android:src="@mipmap/cart"/>
 
         </LinearLayout>

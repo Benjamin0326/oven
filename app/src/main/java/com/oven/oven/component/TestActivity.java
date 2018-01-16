@@ -18,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,8 +28,10 @@ import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.oven.oven.MainActivity;
 import com.oven.oven.R;
 import com.oven.oven.adapter.ItemListAdapter;
+import com.oven.oven.layout.CartActivity;
 import com.oven.oven.layout.ItemListMainActivity;
 import com.oven.oven.layout.LikeListActivity;
+import com.oven.oven.layout.VIewProductActivity;
 import com.oven.oven.model.ProductRes;
 import com.oven.oven.model.ProductResList;
 import com.oven.oven.model.SideUserInfo;
@@ -44,11 +47,12 @@ import retrofit2.Response;
 public class TestActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private LinearLayout goLike;
+    private LinearLayout goLike, viewProduct;
     private RecyclerView recyclerView;
     private ItemListAdapter adapter;
     private List<ProductRes> productList;
     private TextView tv_uname, tv_email, tv_delivery, tv_favorite, tv_view;
+    private ImageButton btn_cart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,14 +72,25 @@ public class TestActivity extends AppCompatActivity
 */
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close){
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                postSidemenu();
+            }
+        };
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
         goLike = (LinearLayout)navigationView.getHeaderView(0).findViewById(R.id.btn_like_drawer);
+        viewProduct = (LinearLayout)navigationView.getHeaderView(0).findViewById(R.id.btn_view_drawer);
+
+        btn_cart = (ImageButton) findViewById(R.id.imgBtn_cart);
+
         tv_delivery = (TextView)navigationView.getHeaderView(0).findViewById(R.id.tv_num_today_delivery_main);
         tv_email = (TextView)navigationView.getHeaderView(0).findViewById(R.id.tv_userMail_main);
         tv_favorite = (TextView)navigationView.getHeaderView(0).findViewById(R.id.tv_num_zzim_main);
@@ -91,11 +106,27 @@ public class TestActivity extends AppCompatActivity
             }
         });
 
+        viewProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TestActivity.this, VIewProductActivity.class);
+                startActivity(intent);
+            }
+        });
+
         recyclerView = (RecyclerView) findViewById(R.id.recycler_item_list);
         adapter = new ItemListAdapter(this, productList);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
+
+        btn_cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TestActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
 
         getProductList();
         postSidemenu();
@@ -111,10 +142,12 @@ public class TestActivity extends AppCompatActivity
         }
     }
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.test, menu);
+        postSidemenu();
         return true;
     }
 
