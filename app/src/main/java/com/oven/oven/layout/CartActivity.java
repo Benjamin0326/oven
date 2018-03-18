@@ -64,9 +64,11 @@ public class CartActivity extends AppCompatActivity {
                         adapter = new CartListAdapter(CartActivity.this, cartProducts);
                         recyclerView.setAdapter(adapter);
                         total=0;
-                        for(int i=0;i<cartProducts.size();i++)
-                            total+=cartProducts.get(i).getTotal_price();
-                        totalPrice.setText("결재금액 : " + total+" 원");
+                        if(cartProducts!=null){
+                            for(int i=0;i<cartProducts.size();i++)
+                                total+=cartProducts.get(i).getTotal_price();
+                            totalPrice.setText("결재금액 : " + total+" 원");
+                        }
                     }
                     return;
                 }
