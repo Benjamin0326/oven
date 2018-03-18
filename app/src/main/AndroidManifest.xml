@@ -16,32 +16,50 @@
             android:name="com.kakao.sdk.AppKey"
             android:value="5ceff209f0023946fe6f2d55bbcf52ef" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
-        <activity android:name=".layout.ItemListActivity" />
-        <activity android:name=".layout.CartActivity" />
-        <activity android:name=".layout.ItemDetailActivity" />
-        <activity android:name=".layout.KakaoSignupActivity" />
-        <activity android:name=".layout.SplashActivity" />
-        <activity android:name=".layout.JoinActivity" />
-        <activity android:name=".layout.ClauseActivity" />
-        <activity android:name=".layout.ItemListMainActivity" />
+        <activity android:name=".layout.ItemListActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".layout.CartActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".layout.ItemDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".layout.KakaoSignupActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".layout.SplashActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".layout.JoinActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".layout.ClauseActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".layout.ItemListMainActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".component.TestActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_test"
             android:theme="@style/AppTheme" />
-        <activity android:name=".layout.LikeListActivity" />
-        <activity android:name=".layout.VIewProductActivity" />
-        <activity android:name=".layout.TabActivity" />
-        <activity android:name=".layout.UserSettingActivity" />
-        <activity android:name=".layout.ModifyUserInfoActivity" />
-        <activity android:name=".layout.GetClauseActivity" />
-        <activity android:name=".layout.GetPersonalClauseActivity"></activity>
+        <activity android:name=".layout.LikeListActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".layout.VIewProductActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".layout.TabActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".layout.UserSettingActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".layout.ModifyUserInfoActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".layout.GetClauseActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".layout.GetPersonalClauseActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

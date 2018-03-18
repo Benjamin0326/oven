@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.oven.oven.MainActivity;
@@ -18,6 +19,8 @@ import com.oven.oven.model.CartProducts;
 import com.oven.oven.model.ProductResList;
 import com.oven.oven.service.ProductService;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -29,6 +32,8 @@ public class CartActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private CartListAdapter adapter;
     private List<CartProduct> cartProducts;
+    private TextView totalPrice;
+    private int total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,7 @@ public class CartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
+        totalPrice = (TextView) findViewById(R.id.tv_total_price_cart);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_cart_list);
         adapter = new CartListAdapter(this, cartProducts);
@@ -57,6 +63,10 @@ public class CartActivity extends AppCompatActivity {
                         cartProducts = response.body().getProduct_list();
                         adapter = new CartListAdapter(CartActivity.this, cartProducts);
                         recyclerView.setAdapter(adapter);
+                        total=0;
+                        for(int i=0;i<cartProducts.size();i++)
+                            total+=cartProducts.get(i).getTotal_price();
+                        totalPrice.setText("결재금액 : " + total+" 원");
                     }
                     return;
                 }

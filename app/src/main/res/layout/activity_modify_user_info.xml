@@ -33,6 +33,7 @@
             android:id="@+id/et_setting_mail"
             android:layout_width="0dp"
             android:layout_weight="9"
+            android:inputType="textWebEmailAddress"
             android:layout_height="40dp"
             android:textColor="@android:color/black"
             android:textSize="15sp"
