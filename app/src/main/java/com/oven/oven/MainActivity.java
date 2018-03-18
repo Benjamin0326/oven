@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ClauseActivity.class);
+
                 startActivity(intent);
             }
         };
@@ -160,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "UID : "+testRes.getUid(), Toast.LENGTH_SHORT).show();
 
                         if(auto_login.isChecked()){
+                            UID = testRes.getUid();
                             SharedPreferences.Editor editor = MainActivity.pref.edit();
                             editor.putInt("autoLogin", 1);
                             editor.putInt("uid", testRes.getUid());
@@ -168,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
                             editor.commit();
                         }
                         else{
+                            UID = testRes.getUid();
                             SharedPreferences.Editor editor = MainActivity.pref.edit();
                             editor.putInt("autoLogin", 0);
                             editor.putInt("uid", testRes.getUid());
@@ -181,6 +184,7 @@ SharedPreferences.Editor editor = MainActivity.pref.edit();
             editor.commit();
  */
                         Intent intent = new Intent(MainActivity.this, TestActivity.class);
+                        finish();
                         startActivity(intent);
                         //finish();
                     }

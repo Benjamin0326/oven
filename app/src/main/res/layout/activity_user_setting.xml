@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.oven.oven.layout.UserSettingActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:padding="1dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/user"
+            android:scaleType="centerInside"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_userId_setting"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:text="User ID"
+                android:textAlignment="center"
+                android:textSize="25sp"/>
+            <TextView
+                android:id="@+id/tv_userMail_setting"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="User Mail"
+                android:textSize="20sp"
+                android:layout_marginBottom="20dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5.5"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+        
+        <Button
+            android:id="@+id/btn_setting_userInfo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="15sp"
+            android:text="회원정보 수정"
+            android:textAlignment="textStart"
+            android:layout_gravity="start"
+            android:background="@android:color/transparent"/>
+
+        <Button
+            android:id="@+id/btn_setting_getClause"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="15sp"
+            android:text="이용 약관"
+            android:textAlignment="textStart"
+            android:layout_gravity="start"
+            android:background="@android:color/transparent"/>
+
+        <Button
+            android:id="@+id/btn_setting_getPersonalClause"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="15sp"
+            android:text="개인정보 취급방침"
+            android:textAlignment="textStart"
+            android:layout_gravity="start"
+            android:background="@android:color/transparent"/>
+
+    </LinearLayout>
+
+</LinearLayout>

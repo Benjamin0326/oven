@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    tools:context="com.oven.oven.layout.ModifyUserInfoActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원정보 수정"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="10dp"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp">
+        <ImageView
+            android:src="@drawable/mail"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginRight="5dp"/>
+        <EditText
+            android:background="@drawable/rectangle_background"
+            android:id="@+id/et_setting_mail"
+            android:layout_width="0dp"
+            android:layout_weight="9"
+            android:layout_height="40dp"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:focusable="false"
+            android:hint="  아이디(이메일)"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp">
+        <ImageView
+            android:src="@drawable/join_key"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginRight="5dp"/>
+        <EditText
+            android:background="@drawable/rectangle_background"
+            android:id="@+id/et_setting_pw"
+            android:layout_width="0dp"
+            android:layout_weight="9"
+            android:layout_height="40dp"
+            android:hint="  비밀번호"
+            android:textSize="15sp"
+            android:inputType="textPassword"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp">
+        <ImageView
+            android:src="@drawable/join_key"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginRight="5dp"/>
+        <EditText
+            android:background="@drawable/rectangle_background"
+            android:id="@+id/et_setting_pw2"
+            android:layout_width="0dp"
+            android:layout_weight="9"
+            android:layout_height="40dp"
+            android:hint="  비밀번호 확인"
+            android:textSize="15sp"
+            android:inputType="textPassword"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp">
+        <ImageView
+            android:src="@drawable/join_profile"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginRight="5dp"/>
+        <EditText
+            android:background="@drawable/rectangle_background"
+            android:id="@+id/et_setting_uname"
+            android:layout_width="0dp"
+            android:layout_weight="9"
+            android:layout_height="40dp"
+            android:textSize="15sp"
+            android:hint="  이름"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp">
+        <ImageView
+            android:src="@drawable/phone"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginRight="5dp"/>
+        <EditText
+            android:background="@drawable/rectangle_background"
+            android:id="@+id/et_setting_hp"
+            android:layout_width="0dp"
+            android:layout_weight="9"
+            android:layout_height="40dp"
+            android:textSize="15sp"
+            android:inputType="numberDecimal"
+            android:hint="  휴대전화번호"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp">
+        <ImageView
+            android:src="@drawable/company"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginRight="5dp"/>
+        <EditText
+            android:background="@drawable/rectangle_background"
+            android:id="@+id/et_setting_cname"
+            android:layout_width="0dp"
+            android:layout_weight="9"
+            android:layout_height="40dp"
+            android:textSize="15sp"
+            android:hint="  업체명"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp">
+        <ImageView
+            android:src="@drawable/home"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginRight="5dp"/>
+        <LinearLayout
+            android:background="@drawable/rectangle_background"
+            android:layout_width="0dp"
+            android:layout_weight="9"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:background="@android:color/transparent"
+                android:id="@+id/et_setting_address"
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:focusable="false"
+                android:hint="  주소"/>
+
+            <Button
+                android:id="@+id/btn_search_address_modify_user_info"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="검색"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp">
+        <EditText
+            android:background="@drawable/rectangle_background"
+            android:id="@+id/et_setting_detailed_address"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textSize="15sp"
+            android:hint="  상세주소"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp">
+        <EditText
+            android:background="@drawable/rectangle_background"
+            android:id="@+id/et_setting_zipcode"
+            android:layout_width="0dp"
+            android:layout_weight="9"
+            android:layout_height="40dp"
+            android:textSize="15sp"
+            android:hint="  우편번호"/>
+    </LinearLayout>
+
+    <Button
+        android:background="@drawable/rectangle_background_button"
+        android:id="@+id/btn_setting_ok"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="회원정보 수정"/>
+
+
+</LinearLayout>

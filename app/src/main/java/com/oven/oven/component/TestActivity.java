@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -31,12 +32,15 @@ import com.oven.oven.adapter.ItemListAdapter;
 import com.oven.oven.layout.CartActivity;
 import com.oven.oven.layout.ItemListMainActivity;
 import com.oven.oven.layout.LikeListActivity;
+import com.oven.oven.layout.TabActivity;
+import com.oven.oven.layout.UserSettingActivity;
 import com.oven.oven.layout.VIewProductActivity;
 import com.oven.oven.model.ProductRes;
 import com.oven.oven.model.ProductResList;
 import com.oven.oven.model.SideUserInfo;
 import com.oven.oven.service.LoginService;
 import com.oven.oven.service.ProductService;
+import com.readystatesoftware.viewbadger.BadgeView;
 
 import java.util.List;
 
@@ -44,22 +48,31 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static java.sql.Types.NULL;
+
 public class TestActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private LinearLayout goLike, viewProduct;
+    private LinearLayout goLike, viewProduct, todayDelivery;
     private RecyclerView recyclerView;
     private ItemListAdapter adapter;
     private List<ProductRes> productList;
-    private TextView tv_uname, tv_email, tv_delivery, tv_favorite, tv_view;
+    private TextView tv_uname, tv_email, tv_delivery, tv_favorite, tv_view, tv_cnt_cart;
     private ImageButton btn_cart;
+
+    private Button btn_test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.activity_test);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(null);
+
 /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +83,9 @@ public class TestActivity extends AppCompatActivity
             }
         });
 */
+
+        tv_cnt_cart = (TextView)findViewById(R.id.badge_notification_1);
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close){
@@ -88,8 +104,16 @@ public class TestActivity extends AppCompatActivity
 
         goLike = (LinearLayout)navigationView.getHeaderView(0).findViewById(R.id.btn_like_drawer);
         viewProduct = (LinearLayout)navigationView.getHeaderView(0).findViewById(R.id.btn_view_drawer);
+        todayDelivery = (LinearLayout)navigationView.getHeaderView(0).findViewById(R.id.btn_today_delivery);
 
         btn_cart = (ImageButton) findViewById(R.id.imgBtn_cart);
+
+        btn_test = (Button) findViewById(R.id.btn_cart);
+        BadgeView badge = new BadgeView(this, btn_test);
+        badge.setText("?");
+
+        badge.setBadgePosition(BadgeView.POSITION_TOP_LEFT);
+        badge.show();
 
         tv_delivery = (TextView)navigationView.getHeaderView(0).findViewById(R.id.tv_num_today_delivery_main);
         tv_email = (TextView)navigationView.getHeaderView(0).findViewById(R.id.tv_userMail_main);
@@ -101,15 +125,32 @@ public class TestActivity extends AppCompatActivity
         goLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent intent = new Intent(TestActivity.this, LikeListActivity.class);
-                    startActivity(intent);
+                Intent intent = new Intent(TestActivity.this, TabActivity.class);
+                intent.putExtra("pageNumber", 1);
+                intent.putExtra("userId", tv_uname.getText().toString());
+                intent.putExtra("userMail", tv_email.getText().toString());
+                startActivity(intent);
             }
         });
 
         viewProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TestActivity.this, VIewProductActivity.class);
+                Intent intent = new Intent(TestActivity.this, TabActivity.class);
+                intent.putExtra("pageNumber", 2);
+                intent.putExtra("userId", tv_uname.getText().toString());
+                intent.putExtra("userMail", tv_email.getText().toString());
+                startActivity(intent);
+            }
+        });
+
+        todayDelivery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TestActivity.this, TabActivity.class);
+                intent.putExtra("pageNumber", 0);
+                intent.putExtra("userId", tv_uname.getText().toString());
+                intent.putExtra("userMail", tv_email.getText().toString());
                 startActivity(intent);
             }
         });
@@ -166,6 +207,15 @@ public class TestActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        getProductList();
+        postSidemenu();
+    }
+
     private void onClickLogout(){
         UserManagement.requestLogout(new LogoutResponseCallback() {
             @Override
@@ -175,8 +225,9 @@ public class TestActivity extends AppCompatActivity
                 editor.commit();
 
                 Intent intent = new Intent(TestActivity.this, MainActivity.class);
-                startActivity(intent);
                 finish();
+                startActivity(intent);
+
             }
         });
     }
@@ -189,15 +240,12 @@ public class TestActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-            SharedPreferences.Editor editor = MainActivity.pref.edit();
-            editor.putInt("autoLogin", 0);
-            editor.commit();
-
-            Intent intent = new Intent(TestActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        } else if (id == R.id.nav_gallery) {
             onClickLogout();
+        } else if (id == R.id.nav_gallery) {
+            Intent intent = new Intent(TestActivity.this, UserSettingActivity.class);
+            intent.putExtra("userId", tv_uname.getText().toString());
+            intent.putExtra("userMail", tv_email.getText().toString());
+            startActivity(intent);
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
@@ -221,6 +269,8 @@ public class TestActivity extends AppCompatActivity
             public void onResponse(Call<ProductResList> call, final Response<ProductResList> response) {
                 if(response.isSuccessful()) {
                     if(response.body()!=null){
+                        if(response.body().getCart_cnt()!=NULL)
+                            tv_cnt_cart.setText(""+response.body().getCart_cnt());
                         productList = response.body().getProduct_list();
                         adapter = new ItemListAdapter(TestActivity.this, productList);
                         recyclerView.setAdapter(adapter);

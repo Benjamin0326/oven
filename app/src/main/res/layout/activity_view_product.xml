@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:layout_margin="10dp"
     tools:context="com.oven.oven.layout.VIewProductActivity">
-
+<!--
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="11"
         android:id="@+id/recycler_item_view_product">
     </android.support.v7.widget.RecyclerView>
-
+-->
 </android.support.constraint.ConstraintLayout>

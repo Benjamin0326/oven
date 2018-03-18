@@ -15,7 +15,7 @@ import retrofit2.http.POST;
 public interface LoginService {
     @FormUrlEncoded
     @POST("/Signup")
-    Call<LoginRes> postJoin(@Field("email") String email, @Field("password") String password, @Field("uname") String uname, @Field("hp") String hp, @Field("cname") String cname, @Field("address") String address);
+    Call<LoginRes> postJoin(@Field("email") String email, @Field("password") String password, @Field("uname") String uname, @Field("hp") String hp, @Field("cname") String cname, @Field("address") String address, @Field("de_addr") String de_addr, @Field("zipcode") String zipcode);
 
     @FormUrlEncoded
     @POST("/Signup")

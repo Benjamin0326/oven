@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusable="true"
+    android:background="@android:color/white"
     android:focusableInTouchMode="true"
     tools:context="com.oven.oven.layout.ItemDetailActivity">
 
@@ -28,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/img_detail"
         android:text="Test Item Name"
-        android:textAlignment="center"
+        android:layout_marginLeft="10dp"
         android:textColor="@android:color/black"
         android:textSize="25sp"/>
 
@@ -50,59 +51,80 @@
                 />
         </ScrollView>
 
-        <Button
-            android:id="@+id/btn_select_date"
-            android:layout_marginRight="20dp"
-            android:layout_width="wrap_content"
-            android:layout_gravity="right"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:textSize="20sp"
-            android:text="배송예정일 선택"/>
+
 
         <LinearLayout
+            android:layout_marginTop="10dp"
             android:id="@+id/layout_item_detail"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="0.7"
             android:orientation="horizontal">
 
             <EditText
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/rectangle_background"
                 android:id="@+id/edit_item_num_detail"
-                android:layout_margin="10dp"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
+                android:textAlignment="center"
                 android:hint="수량입력"
                 android:inputType="numberDecimal"
-                android:textSize="20sp"/>
+                android:textSize="15sp"/>
             <Button
-                android:id="@+id/btn_buy"
-                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:layout_margin="5dp"
+                android:background="@drawable/rectangle_background_button"
+                android:id="@+id/btn_select_date"
+                android:layout_marginRight="20dp"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="50dp"
-                android:text="바로결제"
-                android:textSize="20sp"/>
-            <Button
-                android:id="@+id/btn_cart"
-                android:layout_margin="10dp"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="50dp"
-                android:text="장바구니"
-                android:textSize="20sp"/>
+                android:layout_gravity="right"
+                android:layout_height="40dp"
+                android:textSize="15sp"
+                android:text="배송예정일 선택"/>
         </LinearLayout>
 
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:orientation="horizontal">
+        <Button
+            android:textColor="@android:color/white"
+            android:background="@drawable/rectangle_background_button"
+            android:id="@+id/btn_buy"
+            android:layout_margin="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:textStyle="bold"
+            android:text="바로결제"
+            android:textSize="15sp"/>
+        <Button
+            android:textColor="@android:color/white"
+            android:background="@drawable/rectangle_background_button"
+            android:id="@+id/btn_cart"
+            android:layout_margin="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:text="장바구니"
+            android:textStyle="bold"
+            android:textSize="15sp"/>
+    </LinearLayout>
 
     </LinearLayout>
     <ScrollView
         android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_height="350dp"
         android:layout_alignParentRight="true"
         android:layout_centerInParent="true">
-        <CalendarView
+        <com.squareup.timessquare.CalendarPickerView
+            android:layout_marginTop="100dp"
             android:background="@android:color/white"
             android:id="@+id/calendar_item_detail"
             android:layout_width="250dp"

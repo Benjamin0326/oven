@@ -1,64 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.oven.oven.layout.ItemListMainActivity">
+    android:orientation="vertical"
+    tools:context="com.oven.oven.layout.ItemListMainActivity"
+    android:layout_margin="10dp">
 
-    <FrameLayout
-        android:id="@+id/main_frame"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:layout_marginBottom="15dp">
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="주소를 입력해주세요. 예)휘경동"/>
 
-                <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerInside"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    android:src="@mipmap/menu"/>
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="7"/>
-                <ImageButton
-                    android:scaleType="centerInside"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_gravity="right"
-                    android:background="@android:color/transparent"
-                    android:src="@mipmap/cart"/>
-
-            </LinearLayout>
-
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="11"
-                android:id="@+id/recycler_item_list">
-            </android.support.v7.widget.RecyclerView>
-        </LinearLayout>
-
-    </FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/addressedit"
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:hint="키워드를 입력해주세요."/>
+        <Button
+            android:id="@+id/btnsearch"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="검색"/>
+    </LinearLayout>
 
     <ListView
-        android:id="@+id/navigation_drawer"
-        android:layout_width="350dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:choiceMode="singleChoice"/>
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addresslist"></ListView>
 
-</android.support.v4.widget.DrawerLayout>
+</LinearLayout>

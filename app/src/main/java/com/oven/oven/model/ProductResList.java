@@ -7,9 +7,17 @@ import java.util.List;
  */
 
 public class ProductResList {
-    private int code;
+    private int code, cart_cnt;
     private String msg;
-    private boolean last;
+
+    public int getCart_cnt() {
+        return cart_cnt;
+    }
+
+    public void setCart_cnt(int cart_cnt) {
+        this.cart_cnt = cart_cnt;
+    }
+
     private List<ProductRes> product_list;
 
     public void setCode(int _code){
@@ -17,9 +25,6 @@ public class ProductResList {
     }
     public void setMsg(String _msg){
         msg = _msg;
-    }
-    public void setLast(boolean _last){
-        last = _last;
     }
     public void setProduct_list(List<ProductRes> _product_list){
         product_list = _product_list;
@@ -29,9 +34,6 @@ public class ProductResList {
     }
     public String getMsg(){
         return msg;
-    }
-    public boolean getLast(){
-        return last;
     }
     public List<ProductRes> getProduct_list(){
         return product_list;

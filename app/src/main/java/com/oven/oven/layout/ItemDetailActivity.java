@@ -24,6 +24,10 @@ import com.oven.oven.model.ProductFavorite;
 import com.oven.oven.model.ProductResList;
 import com.oven.oven.service.ProductService;
 import com.squareup.picasso.Picasso;
+import com.squareup.timessquare.CalendarPickerView;
+
+import java.util.Calendar;
+import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,7 +37,7 @@ public class ItemDetailActivity extends AppCompatActivity {
 
     private Button btn_select_date, btn_cart;
     private ImageButton btn_like;
-    private CalendarView calendar;
+    private CalendarPickerView calendar;
     private ProductDetailList productDetail;
     private ImageView img_item_detail;
     private TextView tv_item_name, tv_item_des;
@@ -62,8 +66,27 @@ public class ItemDetailActivity extends AppCompatActivity {
         btn_select_date = (Button) findViewById(R.id.btn_select_date);
         btn_cart = (Button) findViewById(R.id.btn_cart);
         btn_like = (ImageButton) findViewById(R.id.btn_like_detail);
-        calendar = (CalendarView) findViewById(R.id.calendar_item_detail);
+        calendar = (CalendarPickerView) findViewById(R.id.calendar_item_detail);
         calendar.setVisibility(View.INVISIBLE);
+
+        Calendar nextYear = Calendar.getInstance();
+        nextYear.add(Calendar.YEAR, 1);
+
+        Date today = new Date();
+        calendar.init(today, nextYear.getTime()).withSelectedDate(today);
+
+        calendar.setOnDateSelectedListener(new CalendarPickerView.OnDateSelectedListener() {
+            @Override
+            public void onDateSelected(Date date) {
+                Toast.makeText(ItemDetailActivity.this, ""+date.toString(), Toast.LENGTH_LONG).show();
+                calendar.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onDateUnselected(Date date) {
+
+            }
+        });
 
         ImageButton.OnClickListener like_listener = new View.OnClickListener() {
             @Override

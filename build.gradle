@@ -19,7 +19,6 @@ allprojects {
         maven { url 'http://devrepo.kakao.com:8088/nexus/content/groups/public/' }
     }
 }
-
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

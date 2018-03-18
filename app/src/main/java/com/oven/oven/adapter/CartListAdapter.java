@@ -20,7 +20,6 @@ import java.util.List;
 
 public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.ViewHolder>{
 
-
     private Context context;
     private List<CartProduct> cartProducts;
 
@@ -53,13 +52,13 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.ViewHo
         */
 
         holder.tv_name.setText(cartProducts.get(pos).getPname());
-        holder.tv_min.setText(String.valueOf(cartProducts.get(pos).getMin()));
+        holder.tv_min.setText("최소주문수량 "+String.valueOf(cartProducts.get(pos).getMin())+" 개");
 
-        holder.tv_max.setText(String.valueOf(cartProducts.get(pos).getMax()));
+        holder.tv_max.setText("최대주문수량 " + String.valueOf(cartProducts.get(pos).getMax())+" 개");
 
-        holder.tv_price.setText(String.valueOf(cartProducts.get(pos).getTotal_price()));
+        holder.tv_price.setText(String.valueOf(cartProducts.get(pos).getTotal_price())+" 원");
 
-        holder.tv_num.setText(String.valueOf(cartProducts.get(pos).getCpcnt()));
+        holder.tv_num.setText(String.valueOf(cartProducts.get(pos).getCpcnt())+" 개");
 
         holder.tv_date.setText(cartProducts.get(pos).getArrival_date());
         Picasso.with(context).load(cartProducts.get(pos).getImage()).resize(250,250).centerInside().into(holder.img_item);

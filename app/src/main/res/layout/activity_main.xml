@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical"
     tools:context="com.oven.oven.MainActivity">
 
     <ImageView
         android:layout_width="250dp"
-        android:layout_height="125dp"
+        android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        android:background="@android:color/holo_blue_dark"
-        />
+        android:background="@drawable/logo"/>
 
     <LinearLayout
         android:layout_margin="25dp"
@@ -24,39 +24,84 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+            <LinearLayout
+                android:background="@drawable/rectangle_background"
+                android:layout_marginRight="10dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4.5"
+                >
+            <ImageView
+                android:background="@android:color/darker_gray"
+                android:src="@drawable/profile"
+                android:padding="5.5dp"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"/>
             <EditText
+                android:background="@android:color/transparent"
                 android:id="@+id/edit_login_id"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:hint="Username"
+                android:hint="아이디(이메일)"
+                android:textSize="15dp"
                 android:layout_marginRight="10dp"
-                android:layout_weight="3"/>
+                android:layout_weight="3.5"/>
+            </LinearLayout>
             <Button
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:background="@drawable/rectangle_background_button"
                 android:id="@+id/btn_login"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:text="로그인"
-                android:layout_weight="1"/>
+                android:textSize="15sp"
+                android:layout_weight="2"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4.5"
+                android:background="@drawable/rectangle_background"
+                android:layout_marginRight="10dp">
+            <ImageView
+                android:background="@android:color/darker_gray"
+                android:src="@drawable/login_key"
+                android:padding="5.5dp"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"/>
             <EditText
+                android:background="@android:color/transparent"
                 android:id="@+id/edit_login_pw"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:hint="Password"
+                android:hint="비밀번호"
+                android:textSize="15dp"
                 android:layout_marginRight="10dp"
-                android:layout_weight="3"/>
+                android:layout_weight="3.5"/>
+            </LinearLayout>
             <Button
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
                 android:id="@+id/btn_join"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:text="회원가입"
-                android:layout_weight="1"/>
+                android:textSize="15sp"
+                android:background="@drawable/rectangle_background_button"
+                android:layout_weight="2"/>
         </LinearLayout>
 
         <CheckBox

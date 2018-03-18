@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
+
+    <EditText
+        android:id="@+id/edit_address_search_keyword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:hint="동 혹은 도로명을 입력하세요. ex) 하계동 또는 공릉로"
+        />
+
+    <EditText
+        android:id="@+id/edit_address_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:focusable="false"
+        />
+    <EditText
+        android:id="@+id/edit_address_remain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:hint="나머지 주소를 입력해주세요."
+        />
+
+    <android.support.v7.app.AlertController.RecycleListView
+        android:layout_marginTop="10dp"
+        android:id="@+id/recycler_address_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

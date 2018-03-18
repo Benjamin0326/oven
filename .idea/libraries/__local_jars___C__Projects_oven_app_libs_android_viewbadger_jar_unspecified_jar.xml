@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="__local_jars__:C.\Projects\oven\app\libs\android-viewbadger.jar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/android-viewbadger.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

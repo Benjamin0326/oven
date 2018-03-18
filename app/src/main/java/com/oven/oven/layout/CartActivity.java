@@ -1,5 +1,6 @@
 package com.oven.oven.layout;
 
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -31,8 +32,10 @@ public class CartActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //setTheme(R.style.ThemeOverlay_AppCompat_Dialog);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_cart_list);
         adapter = new CartListAdapter(this, cartProducts);
